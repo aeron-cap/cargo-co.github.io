@@ -381,7 +381,7 @@ export default function VehicleTransportLanding() {
                 </div>
                 <div className="flex items-center text-cyan-100">
                   <MapPin className="h-5 w-5 mr-2" />
-                  <span>Quezon City, Metro Manila</span>
+                  <span>Batangas City, Batangas</span>
                 </div>
               </div>
             </div>
