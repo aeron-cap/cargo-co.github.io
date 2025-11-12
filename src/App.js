@@ -112,7 +112,7 @@ export default function VehicleTransportLanding() {
         {/* NEW — small screen truck image (visible only below md) */}
         <img
           src={trans_truck}
-          alt="Car carrier truck transporting vehicles"
+          alt="Car carrier truck transporting multiple vehicles"
           className="absolute bottom-0 left-1/2 -translate-x-1/2 block md:hidden w-[90%] sm:w-[80%] object-contain z-0"
         />
       </section>
