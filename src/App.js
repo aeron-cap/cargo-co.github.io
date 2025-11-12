@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Truck, Shield, Clock, MapPin, Phone, Mail, CheckCircle, Menu, X } from 'lucide-react';
+import { Truck, Shield, Clock, MapPin, Phone, Mail, CheckCircle, Menu, X, Target, Eye } from 'lucide-react';
 import logo from './assets/logo.png';
 import trans_truck from './assets/trans-truck.png';
 
@@ -68,43 +68,54 @@ export default function VehicleTransportLanding() {
       </nav>
 
       {/* Hero Section */}
-<section className="pt-24 pb-16 bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-600 text-white relative overflow-hidden"> {/* Added relative and overflow-hidden */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"> {/* Added relative and z-10 to ensure text is above image */}
-        <div className="grid md:grid-cols-2 gap-12 items-center"> {/* Keeping grid-cols-2 for text layout */}
-          {/* Text content stays in the left column */}
-          <div className="space-y-6"> 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Premium Vehicle Transport Across the Philippines
-            </h1>
-            <p className="text-xl text-cyan-100">
-              Specializing in door-to-door transport of Toyota, Nissan, Mitsubishi, Honda, and other imported vehicles with coordinated customs clearance.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="bg-cyan-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-300 transition">
-                Get a Quote
-              </a>
-              <a href="#services" className="border-2 border-cyan-400 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-400 hover:text-blue-900 transition">
-                Our Services
-              </a>
+      <section className="pt-24 pb-16 bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-600 text-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Text content stays in the left column */}
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                Premium Vehicle Transport Across the Philippines
+              </h1>
+              <p className="text-xl text-cyan-100">
+                Specializing in door-to-door transport of Toyota imported vehicles with coordinated customs clearance.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="#contact"
+                  className="bg-cyan-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-300 transition"
+                >
+                  Get a Quote
+                </a>
+                <a
+                  href="#services"
+                  className="border-2 border-cyan-400 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-400 hover:text-blue-900 transition"
+                >
+                  Our Services
+                </a>
+              </div>
             </div>
-          </div>
-          
-          {/* The right column is now empty to create space, or can be used for other elements if needed */}
-          <div className="hidden md:block">
-            {/* This column is empty or can contain something else. The image is now absolutely positioned. */}
+
+            {/* Keep this column empty on large screens */}
+            <div className="hidden md:block"></div>
           </div>
         </div>
-      </div>
 
-      {/* Absolutely positioned image, extending to the right edge */}
-      <div className="absolute inset-y-0 right-0 md:w-1/2 lg:w-3/5 xl:w-1/2 z-0 hidden md:block"> {/* Adjusted width for image */}
+        {/* Existing absolutely positioned image for large screens */}
+        <div className="absolute inset-y-0 right-0 md:w-1/2 lg:w-3/5 xl:w-1/2 z-0 hidden md:block">
+          <img
+            src={trans_truck}
+            alt="Car carrier truck transporting vehicles"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* NEW — small screen truck image (visible only below md) */}
         <img
-          src={trans_truck} 
+          src={trans_truck}
           alt="Car carrier truck transporting vehicles"
-          className="w-full h-full object-cover" // Ensure it covers the full absolute div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 block md:hidden w-[90%] sm:w-[80%] object-contain z-0"
         />
-      </div>
-    </section>
+      </section>
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-white">
@@ -144,19 +155,44 @@ export default function VehicleTransportLanding() {
         </div>
       </section>
 
-      {/* Vehicle Brands */}
-      <section className="py-16 bg-gray-100">
+      {/* MISSION VISION */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Vehicles We Transport</h2>
-            <p className="text-lg text-gray-600">Specializing in major Japanese and imported brands</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {['Toyota', 'Nissan', 'Mitsubishi', 'Honda', 'Imported Vehicles'].map((brand) => (
-              <div key={brand} className="bg-white rounded-lg p-6 text-center shadow hover:shadow-lg transition">
-                <p className="font-semibold text-gray-900">{brand}</p>
+          {/* Responsive grid: 1 column by default, 2 columns on large screens */}
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            
+            {/* Mission Card */}
+            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-t-4 border-blue-600">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-blue-100 rounded-xl group-hover:bg-blue-600 transition-colors duration-300">
+                  <Target className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h2 className="text-3xl font-bold text-gray-900">MISSION</h2>
               </div>
-            ))}
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Cargo Co. is dedicated to providing fast, secure, and cost-effective delivery services 
+                exclusively via specialized car transport trucks. Help dealerships, auctions, and private 
+                clients transport their vehicles efficiently and safely across land, prioritizing 
+                professionalism, exceptional customer service, and support for the regional economy.
+              </p>
+            </div>
+
+            {/* Vision Card */}
+            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-t-4 border-purple-600">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-purple-100 rounded-xl group-hover:bg-purple-600 transition-colors duration-300">
+                  <Eye className="w-8 h-8 text-purple-600 group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h2 className="text-3xl font-bold text-gray-900">VISION</h2>
+              </div>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                To become the leading specialized land transport provider for vehicles by offering highly 
+                efficient, reliable, and technologically innovative truck delivery solutions. Ensuring 
+                absolute customer satisfaction, guaranteeing damage-free delivery, and sustaining long-term 
+                business growth through operational excellence.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
@@ -285,10 +321,6 @@ export default function VehicleTransportLanding() {
                 >
                   <option value="">Select vehicle brand</option>
                   <option value="Toyota">Toyota</option>
-                  <option value="Nissan">Nissan</option>
-                  <option value="Mitsubishi">Mitsubishi</option>
-                  <option value="Honda">Honda</option>
-                  <option value="Other">Other Imported Vehicle</option>
                 </select>
               </div>
             </div>
