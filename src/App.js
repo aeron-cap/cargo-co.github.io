@@ -33,7 +33,7 @@ export default function VehicleTransportLanding() {
             <div className="flex items-center">
               <img
                 src={logo}
-                alt="A description of the image"
+                alt="logo of the app"
                 style={{ width: '50px', height: 'auto' }}
               />
               <span className="ml-2 text-xl font-bold text-blue-900">Cargo Co. Auto Logistics</span>
@@ -379,7 +379,7 @@ export default function VehicleTransportLanding() {
                   >
                     <img
                       src={logo}
-                      alt="A description of the image"
+                      alt="small logo"
                       style={{ width: '50px', height: 'auto', display: 'block' }}
                     />
                   </div>
